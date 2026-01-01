@@ -54,3 +54,42 @@ Get it for free from **Google AI Studio**.
 ```bash
 git clone https://github.com/your-username/talk-to-pdf.git
 cd talk-to-pdf
+```
+### 3. Create a Virtual Environment
+
+It is recommended to use a virtual environment to avoid dependency conflicts.
+
+```bash
+# Windows
+python -m venv venv
+venv\Scripts\activate
+
+
+# Linux / macOS
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 4. Install Dependencies
+```bash
+pip install streamlit langchain-google-genai langchain-community scikit-learn pypdf
+```
+
+## 🏃‍♂️ How to Run
+1. Open the project folder in VS Code or Terminal.
+2. Run the Streamlit server:
+
+```bash
+    streamlit run app.py
+```
+3. The application will open automatically in your browser at http://localhost:8501.
+4. Paste your API Key in the code (line 18 of app.py) or keep it ready to enter if prompted.
+
+## 🧠 Methodology (How it Works)
+1. Ingestion: The user uploads a PDF. The system reads the file using PyPDFLoader.
+
+2. Chunking: The text is split into smaller chunks (2000 characters) using ```RecursiveCharacterTextSplitter.```
+
+3. Retrieval (TF-IDF): instead of converting text to heavy vectors, the system indexes the chunks using statistical keyword frequency. When a user asks a question, the system finds the most statistically relevant chunks.
+
+4. Generation: The relevant chunks + the user question are sent to Gemini Flash, which formulates a human-like answer.
