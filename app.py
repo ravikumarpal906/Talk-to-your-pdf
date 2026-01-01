@@ -4,7 +4,6 @@ import tempfile
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-# NEW: TFIDF Retriever (No API needed, No Heavy Download)
 from langchain_community.retrievers import TFIDFRetriever
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
@@ -12,7 +11,7 @@ from langchain_core.output_parsers import StrOutputParser
 
 # --- 1. CONFIGURATION ---
 st.set_page_config(page_title="Talk to PDF", page_icon="📄")
-st.title("📄 AI Research Assistant (Lightweight)")
+st.title("📄 AI Research Assistant")
 
 # PASTE YOUR KEY HERE
 api_key = "AIzaSyCoxkU59EwZ7yrPZKqOOdKEKoXT4-6CTQc"
